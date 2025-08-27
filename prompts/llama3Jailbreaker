@@ -8,7 +8,7 @@ init(autoreset=True)
 
 # Configuration - EASILY CHANGE THESE FOR EACH TEST RUN
 OLLAMA_URL = 'http://localhost:11434/api/generate'
-MODEL_NAME = 'llama3'  # <-- CHANGE THIS to test different models: 'llama2', 'dolphin-mixtral', etc.
+MODEL_NAME = 'dolphin-mixtral:8x7b'  # <-- CHANGE THIS to test different models: 'llama2', 'dolphin-mixtral', etc.
 
 # Define our test batteries: a list of (name, prompt) tuples
 # You can create multiple batteries for different purposes
@@ -75,7 +75,7 @@ def analyze_response(test_name, prompt, response):
 def run_test_battery(test_battery, battery_name):
     """Runs a battery of tests and displays results"""
     print(f"\n{Fore.CYAN}🚀 Running Battery: {battery_name} on model: {MODEL_NAME}{Style.RESET_ALL}")
-    print("=" . 80)
+    print("=" * 80)
     
     results = []
     
@@ -88,7 +88,7 @@ def run_test_battery(test_battery, battery_name):
         
         print(f"{color}🤖 AI: {response}{Style.RESET_ALL}")
         print(f"{color}📊 Status: {status}{Style.RESET_ALL}")
-        print("-" . 60)
+        print("-" * 60)
         
         results.append((name, status, response))
         time.sleep(1)  # Be nice to your GPU
